@@ -33,12 +33,28 @@
   button { 
     font-size: 32px; 
     padding: 20px; 
+    border: 2px solid #666;
+    border-radius: 8px;
+    color: #000;
   }
+
+  /* ▼ ボタンの背景色（2個ずつ） */
+  .btn-group1 { background-color: #f2f2ff; }
+  .btn-group2 { background-color: #f9f2ff; }
+  .btn-group3 { background-color: #f2fff2; }
+
+  /* ▼ 対応するボックスの背景色 */
+  #typeBox  { background-color: #f2f2ff; }
+  #placeBox { background-color: #f9f2ff; }
+  #extraBox { background-color: #f2fff2; }
 
   .reset {
     font-size: 24px;
     padding: 10px 20px;
     margin-top: 20px;
+    background-color: #eee;
+    border: 2px solid #666;
+    border-radius: 8px;
     align-self: flex-end;
   }
 </style>
@@ -54,20 +70,34 @@
 </head>
 <body>
 
+<!-- 左側にボックス -->
 <div>
   <div id="typeBox" class="panel"></div>
   <div id="placeBox" class="panel"></div>
+  <div id="extraBox" class="panel"></div>
 </div>
 
+<!-- 右側にボタン -->
 <div class="buttons">
-  <button onclick="typeBox.textContent='X字'; speak('えっくすじ');">X字</button>
-  <button onclick="typeBox.textContent='十字'; speak('じゅうじ');">十字</button>
 
-  <!-- 読み上げ修正済み -->
-  <button onclick="placeBox.textContent='12安置'; speak('いちにあんち');">12安置</button>
-  <button onclick="placeBox.textContent='34安置'; speak('さんよんあんち');">34安置</button>
+  <!-- グループ1 -->
+  <button class="btn-group1" onclick="typeBox.textContent='X字'; speak('えっくすじ');">X字</button>
+  <button class="btn-group1" onclick="typeBox.textContent='十字'; speak('じゅうじ');">十字</button>
 
-  <button class="reset" onclick="typeBox.textContent=''; placeBox.textContent=''; speak('リセットしました');">
+  <!-- グループ2 -->
+  <button class="btn-group2" onclick="placeBox.textContent='12安置'; speak('いちにあんち');">12安置</button>
+  <button class="btn-group2" onclick="placeBox.textContent='34安置'; speak('さんよんあんち');">34安置</button>
+
+  <!-- グループ3 -->
+  <button class="btn-group3" onclick="extraBox.textContent='A 頭割り'; speak('えー あたまわり');">A 頭割り</button>
+  <button class="btn-group3" onclick="extraBox.textContent='A 円範囲'; speak('えー えんはんい');">A 円範囲</button>
+
+  <button class="reset" onclick="
+    typeBox.textContent='';
+    placeBox.textContent='';
+    extraBox.textContent='';
+    speak('リセットしました');
+  ">
     リセット
   </button>
 </div>
